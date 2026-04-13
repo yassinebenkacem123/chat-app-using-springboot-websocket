@@ -1,0 +1,339 @@
+/* --- Base & Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0d0d0d;
+    color: #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+body > h1 {
+    display: none;
+}
+
+/* --- Common Form Elements --- */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: #e8e8e8;
+    background-color: #1a1a1a;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    border-color: #f5c800;
+    box-shadow: 0 0 0 3px rgba(245, 200, 0, 0.12);
+}
+
+.form-control::placeholder {
+    color: #555555;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.18s, transform 0.1s;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.btn-primary,
+.primary-btn {
+    background-color: #f5c800;
+    color: #111111;
+    letter-spacing: 0.01em;
+}
+
+.btn-primary:hover,
+.primary-btn:hover {
+    background-color: #e0b800;
+}
+
+/* --- Layout Containers --- */
+#username-page,
+#chat-page {
+    width: 100%;
+    max-width: 460px;
+    background: #161616;
+    border-radius: 16px;
+    border: 1px solid #222222;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Username Page --- */
+#username-page {
+    padding: 2.5rem 2rem 2rem;
+}
+
+.username-page-container {
+    text-align: center;
+}
+
+.username-page-container .logo-mark {
+    width: 44px;
+    height: 44px;
+    background-color: #f5c800;
+    border-radius: 12px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.username-page-container .title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: #f0f0f0;
+    letter-spacing: -0.01em;
+}
+
+.username-page-container .subtitle {
+    font-size: 0.85rem;
+    color: #555555;
+    margin-bottom: 1.75rem;
+}
+
+.username-page-container .btn-primary {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.8rem;
+}
+
+/* --- Chat Page --- */
+#chat-page {
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    max-height: 700px;
+}
+
+/* Header */
+.chat-header {
+    background-color: #111111;
+    color: #f0f0f0;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.chat-header-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #f5c800;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-header-avatar-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #111111;
+}
+
+.chat-header h2 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1;
+    color: #f0f0f0;
+}
+
+.chat-header-status {
+    font-size: 0.72rem;
+    color: #f5c800;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Connection status bar */
+.connecting {
+    text-align: center;
+    padding: 0.4rem 1rem;
+    background-color: #131313;
+    color: #555555;
+    font-size: 0.78rem;
+    border-bottom: 1px solid #1e1e1e;
+    flex-shrink: 0;
+}
+
+/* Message Display Area */
+#messageArea {
+    flex-grow: 1;
+    padding: 1.25rem 1.25rem 0.75rem;
+    overflow-y: auto;
+    list-style: none;
+    background-color: #0f0f0f;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a2a transparent;
+}
+
+#messageArea::-webkit-scrollbar {
+    width: 3px;
+}
+
+#messageArea::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#messageArea::-webkit-scrollbar-thumb {
+    background-color: #2a2a2a;
+    border-radius: 4px;
+}
+
+/* Message Bubbles */
+.message {
+    display: flex;
+    flex-direction: column;
+    max-width: 78%;
+}
+
+.message.sender {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+.message.receiver {
+    align-self: flex-start;
+    align-items: flex-start;
+}
+
+.message-bubble {
+    padding: 0.65rem 1rem;
+    border-radius: 14px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.message.sender .message-bubble {
+    background-color: #f5c800;
+    color: #111111;
+    font-weight: 500;
+    border-bottom-right-radius: 4px;
+}
+
+.message.receiver .message-bubble {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #2a2a2a;
+    border-bottom-left-radius: 4px;
+}
+
+.message.system .message-bubble {
+    background-color: #161616;
+    color: #555555;
+    border: 1px solid #1e1e1e;
+    font-size: 0.8rem;
+    align-self: center;
+    max-width: 90%;
+    text-align: center;
+    border-radius: 8px;
+    padding: 0.4rem 0.85rem;
+}
+
+.message-meta {
+    font-size: 0.7rem;
+    color: #3a3a3a;
+    margin-top: 0.3rem;
+    padding: 0 0.25rem;
+}
+
+.message.sender .message-meta {
+    color: #4a4a4a;
+}
+
+/* Event / status messages */
+.event-message {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #3a3a3a;
+    padding: 0.2rem 0;
+}
+
+/* Chat Input Area */
+#message-form {
+    padding: 0.9rem 1rem;
+    background: #131313;
+    border-top: 1px solid #1e1e1e;
+    flex-shrink: 0;
+}
+
+#message-form .form-group {
+    margin-bottom: 0;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.input-group .form-control {
+    flex-grow: 1;
+    padding: 0.65rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #222222;
+    background-color: #1a1a1a;
+    color: #e8e8e8;
+    font-size: 0.9rem;
+    transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.input-group .form-control:focus {
+    border-color: #f5c800;
+    box-shadow: 0 0 0 3px rgba(245, 200, 0, 0.1);
+}
+
+.input-group .primary-btn {
+    flex-shrink: 0;
+    padding: 0.65rem 1.1rem;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background-color: #f5c800;
+    color: #111111;
+}
+
+.input-group .primary-btn:hover {
+    background-color: #e0b800;
+}

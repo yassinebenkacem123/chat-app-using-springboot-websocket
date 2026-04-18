@@ -221,73 +221,50 @@ button:active {
 }
 
 /* Message Bubbles */
-.message {
+.chat-message {
+    padding-left: 58px;
+    padding-right: 15px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.chat-message i {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    left: 10px;
+    top: 5px;
+    border-radius: 50%;
+    color: #fff;
+    text-transform: uppercase;
     display: flex;
-    flex-direction: column;
-    max-width: 78%;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: bold;
 }
 
-.message.sender {
-    align-self: flex-end;
-    align-items: flex-end;
+.chat-message span {
+    display: block;
+    color: #f5c800;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
 }
 
-.message.receiver {
-    align-self: flex-start;
-    align-items: flex-start;
-}
-
-.message-bubble {
-    padding: 0.65rem 1rem;
-    border-radius: 14px;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    word-break: break-word;
-}
-
-.message.sender .message-bubble {
-    background-color: #f5c800;
-    color: #111111;
-    font-weight: 500;
-    border-bottom-right-radius: 4px;
-}
-
-.message.receiver .message-bubble {
-    background-color: #1e1e1e;
+.chat-message p {
     color: #e0e0e0;
-    border: 1px solid #2a2a2a;
-    border-bottom-left-radius: 4px;
-}
-
-.message.system .message-bubble {
-    background-color: #161616;
-    color: #555555;
-    border: 1px solid #1e1e1e;
-    font-size: 0.8rem;
-    align-self: center;
-    max-width: 90%;
-    text-align: center;
-    border-radius: 8px;
-    padding: 0.4rem 0.85rem;
-}
-
-.message-meta {
-    font-size: 0.7rem;
-    color: #3a3a3a;
-    margin-top: 0.3rem;
-    padding: 0 0.25rem;
-}
-
-.message.sender .message-meta {
-    color: #4a4a4a;
+    margin: 0;
+    word-break: break-word;
+    line-height: 1.5;
 }
 
 /* Event / status messages */
 .event-message {
     text-align: center;
-    font-size: 0.75rem;
-    color: #3a3a3a;
-    padding: 0.2rem 0;
+    font-size: 0.8rem;
+    color: #777;
+    margin: 10px 0;
 }
 
 /* Chat Input Area */
